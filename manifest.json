@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Close Tabs",
+  "description": "一定時間後にタブを自動で閉じる拡張機能。",
+  "version": "1.0",
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon_16x16.png",
+    "48": "icon_48x48.png",
+    "128": "icon_128x128.png"
+  }
+}

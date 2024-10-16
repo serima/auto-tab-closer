@@ -1,4 +1,4 @@
-const CLOSE_TIME_MS = 5 * 60 * 1000; // 5分 (ミリ秒)
+const CLOSE_TIME_MS = 6 * 60 * 60 * 1000; // 6時間 (ミリ秒)
 
 // タブが開かれたときに開始時刻を保存
 chrome.tabs.onCreated.addListener((tab) => {

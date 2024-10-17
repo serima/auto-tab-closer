@@ -10,10 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 設定を保存
   document.getElementById('saveButton').addEventListener('click', () => {
     const closeTime = document.getElementById('closeTimeInput').value;
+    const closeTimeNumber = Number(closeTime);
   
-    // 入力値が有効か確認
-    if (closeTime >= 1 && closeTime <= 120) {
-      chrome.storage.sync.set({ closeTime }, () => {
+    // バリデーション: 数値が1〜1440の範囲内かチェック
+    if (Number.isInteger(closeTimeNumber) && closeTimeNumber >= 1 && closeTimeNumber <= 1440) {
+      chrome.storage.sync.set({ closeTime: closeTimeNumber }, () => {
         const statusMessage = document.getElementById('statusMessage');
         statusMessage.textContent = '設定が保存されました!';
         setTimeout(() => {
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
       });
     } else {
-      alert('1分から120分の範囲で設定してください。');
+      alert('1分から120分の範囲で有効な数値を入力してください。');
     }
   });
   

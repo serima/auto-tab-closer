@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Close Tabs Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Auto Close Tabs</h1>
+    <p>タブが自動で閉じられる時間を設定してください（分）:</p>
+    <input type="number" id="closeTimeInput" min="1" max="120" step="1" placeholder="5" />
+    <button id="saveButton">保存</button>
+    <p id="statusMessage"></p>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,7 +1,3 @@
-以下は、簡単な`README.md`の例です。Chrome拡張機能の基本的な説明と、インストールおよび使用方法について記載しています。
-
----
-
 ## Auto Close Tabs - Chrome Extension
 
 This is a Chrome extension that automatically closes browser tabs after a user-defined time period. Users can customize the time (in minutes) before a tab is closed through the settings UI.

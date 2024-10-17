@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
       });
     } else {
-      alert('1分から120分の範囲で有効な数値を入力してください。');
+      alert('1分から1440分の範囲で有効な数値を入力してください。');
     }
   });
   

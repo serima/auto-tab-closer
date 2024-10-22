@@ -24,11 +24,18 @@ function scheduleTabClose(tabId, closeTimeMs) {
         const elapsedTime = Date.now() - result[tabId]; // 経過時間を計算
 
         if (elapsedTime >= closeTimeMs) {
-          // タイムアウト: タブを閉じる
-          chrome.tabs.remove(tabId, () => {
-            console.log(`Tab ${tabId} closed after ${closeTimeMs / 1000} seconds.`);
-            clearInterval(interval); // タイマーを停止
-            chrome.storage.local.remove([`${tabId}`]); // 記録を削除
+          // 現在のタブ数を取得して1つしかない場合は閉じない
+          chrome.tabs.query({}, (tabs) => {
+            if (tabs.length > 1) { // タブが1つより多い場合のみ閉じる
+              chrome.tabs.remove(tabId, () => {
+                console.log(`Tab ${tabId} closed after ${closeTimeMs / 1000} seconds.`);
+                clearInterval(interval); // タイマーを停止
+                chrome.storage.local.remove([`${tabId}`]); // 記録を削除
+              });
+            } else {
+              console.log(`Tab ${tabId} not closed because it is the last tab.`);
+              clearInterval(interval); // タイマーを停止
+            }
           });
         }
       } else {
@@ -39,6 +46,7 @@ function scheduleTabClose(tabId, closeTimeMs) {
   }, 60 * 1000); // 1分ごとにチェック
 }
 
+// タブが閉じられたときにストレージから情報を削除
 chrome.tabs.onRemoved.addListener((tabId) => {
   chrome.storage.local.remove([`${tabId}`], () => {
     console.log(`Tab ${tabId} removed from storage.`);

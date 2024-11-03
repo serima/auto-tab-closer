@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Customizable Auto Close Tabs",
   "description": "ユーザーが設定可能なタブ自動クローズ機能。",
-  "version": "1.3",
+  "version": "1.4",
   "permissions": [
     "tabs", 
     "storage"

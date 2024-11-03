@@ -8,6 +8,9 @@ This is a Chrome extension that automatically closes browser tabs after a user-d
 - Customizable time setting through the extension options page.
 - Supports PC sleep mode: the countdown will continue after waking up.
 - Lightweight and easy to use.
+- Does not close the last remaining tab.
+- Does not close pinned tabs.
+- Restarts countdown when a tab is unpinned.
 
 ### Installation
 
